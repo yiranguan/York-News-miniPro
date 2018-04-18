@@ -1,0 +1,34 @@
+.nav {
+  width: 750rpx;
+  height: 80rpx;
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  background-color: black;
+  color: white;
+  padding-bottom: 5rpx;
+}
+
+.news-type-text {
+  position: relative;
+  font-size: 30rpx;
+  line-height: 42rpx;
+  margin-bottom: 10rpx;
+}
+
+.selected {
+  font-size: 40rpx;
+  line-height: 56rpx;
+}
+
+.selected-line {
+  position: absolute;
+  left: 25rpx;
+  right: 25rpx;
+  border-bottom: 4rpx solid white ;
+}
+
+.news-type-pic {
+  width: 750rpx;
+  height: 250rpx;
+}

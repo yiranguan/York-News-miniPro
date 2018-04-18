@@ -1,0 +1,10 @@
+<view class='nav'>
+  <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.type}}' bindtap='onNewsTypeTap'>
+    <view>{{item.text}}</view>
+    <view class='{{item.selectLine}}'></view>
+  </view>
+</view>
+<image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
+<view class='news-list-wrapper'>
+  <view></view>
+</view>
