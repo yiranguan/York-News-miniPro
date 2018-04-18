@@ -1,10 +1,24 @@
-<view class='nav'>
-  <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.type}}' bindtap='onNewsTypeTap'>
-    <view>{{item.text}}</view>
-    <view class='{{item.selectLine}}'></view>
+<view class='content'>
+  <view class='nav'>
+    <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.type}}' bindtap='onNewsTypeTap'>
+      <view>{{item.text}}</view>
+      <view class='{{item.selectLine}}'></view>
+    </view>
   </view>
+  <view>
+    <image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
+    <view class='news-list'>
+      <view class='news-list-item' wx:for='{{newsList}}' wx:key='id' bindtap='onNewsTap'>
+        <view class='news-info'>
+          <view class='news-title'>{{item.title}}</view>
+          <view class='news-desc'>
+            <view class='news-source'>{{item.source}}</view>
+            <view class='news-date'>{{item.date}}</view>
+          </view>
+        </view>
+        <image src='{{item.firstImage}}' class='news-first-image'></image>
+      </view>
+    </view>
+  </view> 
 </view>
-<image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
-<view class='news-list-wrapper'>
-  <view></view>
-</view>
+

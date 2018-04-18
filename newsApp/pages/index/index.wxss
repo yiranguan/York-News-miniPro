@@ -1,3 +1,7 @@
+.content {
+  background-color: black;
+}
+
 .nav {
   width: 750rpx;
   height: 80rpx;
@@ -31,4 +35,50 @@
 .news-type-pic {
   width: 750rpx;
   height: 250rpx;
+}
+
+.news-list {
+  width: 750rpx;
+  background-color: black;
+  color:white;
+}
+
+.news-list-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 4rpx solid #333;
+  padding: 30rpx 0;
+  margin: 0 30rpx;
+}
+
+.news-info {
+  width: 533rpx;
+}
+
+.news-first-image {
+  width: 177rpx;
+  height: 111rpx;
+}
+
+.news-title {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  font-size: 35rpx;
+  line-height: 49rpx;
+  padding-right: 10rpx;
+  margin-bottom: 10rpx; 
+  color: #DDD
+}
+
+.news-desc {
+  display: flex;
+  font-size: 25rpx;
+  line-height: 35rpx;
+  color: #AAA;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-right: 15rpx;
 }
