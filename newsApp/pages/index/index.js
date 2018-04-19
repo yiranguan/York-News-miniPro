@@ -60,25 +60,16 @@ Page({
     ],
     newTypePicURL: '/images/gn-pic.jpg',
     newsList: [],
-    animationData:{}
   },
 
   onLoad() {
     this.getList(TYPEINDEX, LISTINDEX)
-  },
-
-  onReady() {
-    this.animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: "ease",
-    })
   },
   // 下方方法：点击分类，实现分类文字、标题图片的变化，以及不同列表的渲染
   onNewsTypeTap(event){
     console.log(event)
     LISTINDEX = 7
     TYPEINDEX = event.currentTarget.dataset.type
-    this.tapNewsTypeAnimation()
     this.setNewsTypeStyle()
     this.getList(TYPEINDEX, LISTINDEX)
   },
@@ -160,27 +151,5 @@ Page({
       newTypePicURL: '/images/' + newsType[TYPEINDEX].type + '-pic.jpg'
     })
   },
-
-  tapNewsTypeAnimation(){
-    var animation = wx.createAnimation({
-      duration: 1000,
-      timingFunction: 'ease',
-    })
-
-    this.animation = animation
-
-    animation.scale(2, 2).rotate(45).step()
-    
-    this.setData({
-      animationData: this.animation.export()
-    })
-
-    setTimeout(function () {
-      animation.translate(30).step()
-      this.setData({
-        animationData: animation.export()
-      })
-    }.bind(this), 1000)
-  }
 
 })
