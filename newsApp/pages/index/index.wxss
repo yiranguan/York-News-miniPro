@@ -36,7 +36,7 @@
 .news-type-pic {
   width: 750rpx;
   height: 250rpx;
-  margin-top: 80rpx
+  margin-top: 85rpx
 }
 
 .news-list {

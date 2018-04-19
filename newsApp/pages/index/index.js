@@ -1,9 +1,7 @@
 let TYPEINDEX = 0 // 新闻种类在this.data.newsType数组中的位置
 let LISTINDEX = 7 // 加载新闻列表的数量
-let TOUCHTIMES = 0 // 记录当前分类下，滑动的次数
 let TOUCHDOT = 0  // 滑动触摸开始位置
 let INTERVAL = '' // 滑动行为持续的时间
-let FLAG_HD = true // 防止页面加载完成之前，再次执行滑动
 
 Page({
   data:{
@@ -67,27 +65,53 @@ Page({
   },
   // 下方方法：点击分类，实现分类文字、标题图片的变化，以及不同列表的渲染
   onNewsTypeTap(event){
-    console.log(event)
     LISTINDEX = 7
     TYPEINDEX = event.currentTarget.dataset.type
     this.setNewsTypeStyle()
     this.getList(TYPEINDEX, LISTINDEX)
   },
 
-  onNewstap(event){
-
+  onShow(){
+    clearInterval(INTERVAL);
   },
 
-  contentTouchStart(){
-
+  onNewsTap(event) {
+    console.log(event)
+    let id = event.currentTarget.dataset.type
+    let newsType = this.data.newsType[TYPEINDEX].type
+    wx.navigateTo({
+      url: '../detail/detail?id=' + id + '&type=' + newsType
+    })
   },
 
-  contentTouchEnd(){
-
+  contentTouchStart(event){
+    TOUCHDOT = event.touches[0].pageX // 获取触摸时的原点
+    // 使用js计时器记录时间    
+    INTERVAL = setInterval(() => {}, 100)
   },
 
-  contentTouchMove(){
-
+  contentTouchEnd(event){
+    let touchMove = event.changedTouches[0].pageX
+    // 向左滑动   
+    if (touchMove - TOUCHDOT <= -100) {
+      if (TYPEINDEX<6){
+        LISTINDEX = 7
+        TYPEINDEX += 1
+        this.setNewsTypeStyle()
+        this.getList(TYPEINDEX, LISTINDEX)
+      }
+      
+    }
+    // 向右滑动   
+    if (touchMove - TOUCHDOT >= 100) {
+      if (TYPEINDEX > 0) {
+        LISTINDEX = 7
+        TYPEINDEX -= 1
+        this.setNewsTypeStyle()
+        this.getList(TYPEINDEX, LISTINDEX)
+      }
+    }
+    clearInterval(INTERVAL); // 清除setInterval
   },
   // 下拉刷新
   onPullDownRefresh(){
@@ -116,7 +140,6 @@ Page({
         })
       },
       complete:() => {
-        console.log('Callback is: ', callback)
         callback && callback()
       }
     })

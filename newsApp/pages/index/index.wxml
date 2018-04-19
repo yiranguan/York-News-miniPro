@@ -5,10 +5,10 @@
       <view class='{{item.selectLine}}'></view>
     </view>
   </view>
-  <view bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd' bindtouchmove='contentTouchMove'>
+  <view bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd'>
     <image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
     <view class='news-list'>
-      <view class='news-list-item' wx:for='{{newsList}}' wx:key='' bindtap='onNewsTap'>
+      <view class='news-list-item' wx:for='{{newsList}}' wx:key='' bindtap='onNewsTap'  data-type='{{item.id}}'>
         <view class='news-info'>
           <view class='news-title'>{{item.title}}</view>
           <view class='news-desc'>
