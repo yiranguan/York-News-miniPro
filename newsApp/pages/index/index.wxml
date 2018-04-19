@@ -1,0 +1,25 @@
+<view class='content'>
+  <view class='nav'>
+    <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.code}}' bindtap='onNewsTypeTap'>
+      <view>{{item.text}}</view>
+      <view class='{{item.selectLine}}'></view>
+    </view>
+  </view>
+  <view bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd'>
+    <image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
+    <view class='news-list'>
+      <view class='news-list-item' wx:for='{{newsList}}' wx:key='' bindtap='onNewsTap'  data-type='{{item.id}}'>
+        <view class='news-info'>
+          <view class='news-title'>{{item.title}}</view>
+          <view class='news-desc'>
+            <view wx:if='{{item.source}}' class='news-source'>{{item.source}}</view>
+            <view wx:else class='news-source'>外星人</view>
+            <view class='news-date'>{{item.date}}</view>
+          </view>
+        </view>
+        <image src='{{item.firstImage}}' class='news-first-image'></image>
+      </view>
+    </view>
+  </view> 
+</view>
+
