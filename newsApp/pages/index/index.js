@@ -1,3 +1,10 @@
+let TYPEINDEX = 0 // 新闻种类在this.data.newsType数组中的位置
+let LISTINDEX = 7 // 加载新闻列表的数量
+let TOUCHTIMES = 0 // 记录当前分类下，滑动的次数
+let TOUCHDOT = 0  // 滑动触摸开始位置
+let INTERVAL = '' // 滑动行为持续的时间
+let FLAG_HD = true // 防止页面加载完成之前，再次执行滑动
+
 Page({
   data:{
     newsType:[
@@ -44,7 +51,9 @@ Page({
         selectLine: ''
       }
     ],
+
     newTypePicURL: '/images/gn-pic.jpg',
+
     newsList: [
       {
       "id": 1519631218506,
@@ -77,9 +86,57 @@ Page({
     ],
   },
 
-  onNewsTypeTap: event => {
+  onLoad(){
+    this.getList(TYPEINDEX, LISTINDEX)
+  },
+
+  onNewsTypeTap(event){
 
   },
 
+  onNewstap(event){
+
+  },
+
+  contentTouchStart(){
+
+  },
+
+  contentTouchEnd(){
+
+  },
+
+  contentTouchMove(){
+
+  },
+
+  onPullDownRefresh(){
+
+  },
+
+  onReachBottom(){
+
+  },
+
+  getList(typeIndex, listIndex){
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/list',
+      data: { 'type': this.data.newsType[typeIndex].type },
+      success:res => {
+        let result = res.data.result
+        let newsList = [] 
+        console.log('newsListDataIs: ', result)
+        for (let i=0; i<listIndex; i++) {
+          newsList.push(
+            result[i]
+          )
+        }
+        console.log('The newList will rending is :', newsList)
+        this.setData({
+          newsList: newsList
+        })
+      },
+    })
+  }
 
 })

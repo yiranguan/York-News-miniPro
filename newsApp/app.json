@@ -6,6 +6,7 @@
     "backgroundTextStyle":"dark",
     "navigationBarBackgroundColor": "#000",
     "navigationBarTitleText": "新闻小程序",
-    "navigationBarTextStyle":"white"
+    "navigationBarTextStyle":"white",
+    "enablePullDownRefresh": true
   }
 }
