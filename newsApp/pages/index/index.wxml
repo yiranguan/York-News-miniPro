@@ -1,11 +1,11 @@
 <view class='content'>
   <view class='nav'>
-    <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.type}}' bindtap='onNewsTypeTap'>
+    <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.code}}' bindtap='onNewsTypeTap'>
       <view>{{item.text}}</view>
       <view class='{{item.selectLine}}'></view>
     </view>
   </view>
-  <view bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd' bindtouchmove='contentTouchMove'>
+  <view animation='{{animationData}}' bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd' bindtouchmove='contentTouchMove'>
     <image src='{{newTypePicURL}}' class='news-type-pic' alt='news-type-pic'></image>
     <view class='news-list'>
       <view class='news-list-item' wx:for='{{newsList}}' wx:key='' bindtap='onNewsTap'>
