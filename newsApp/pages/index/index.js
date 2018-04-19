@@ -127,8 +127,10 @@ Page({
       listLength = listIndex
     } 
     for (let i = 0; i < listLength; i++) {
+      let content = result[i]
+      content.date = content.date.slice(0,10)
       newsList.push(
-        result[i]
+        content
       )
     }
     this.setData({
