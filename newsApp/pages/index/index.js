@@ -89,13 +89,17 @@ Page({
   contentTouchMove(){
 
   },
-
+  // 下拉刷新
   onPullDownRefresh(){
-
+    LISTINDEX = 7
+    this.getList(TYPEINDEX, LISTINDEX,() => {
+      wx.stopPullDownRefresh()
+    })
   },
-
+  // 触底加载
   onReachBottom(){
-
+    LISTINDEX += 7
+    this.getList(TYPEINDEX, LISTINDEX)
   },
   // 下方getList()方法用来获取数据并设置data
   getList(typeIndex, listIndex, callback){

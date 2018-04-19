@@ -1,4 +1,5 @@
 .content {
+  position: relative;
   background-color: black;
 }
 
@@ -11,6 +12,7 @@
   background-color: black;
   color: white;
   padding-bottom: 5rpx;
+  position: fixed;
 }
 
 .news-type-text {
@@ -35,6 +37,7 @@
 .news-type-pic {
   width: 750rpx;
   height: 250rpx;
+  margin-top: 80rpx
 }
 
 .news-list {
