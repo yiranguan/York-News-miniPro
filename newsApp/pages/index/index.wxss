@@ -1,6 +1,5 @@
 .content {
   position: relative;
-  background-color: black;
 }
 
 .nav {
