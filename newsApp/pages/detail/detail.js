@@ -82,6 +82,18 @@ Page({
     }
     clearInterval(INTERVAL); // 清除setInterval
   },
+  // 下拉刷新
+  onPullDownRefresh() {
+    this.getDetail(() => {
+      wx.stopPullDownRefresh()
+    })
+  },
+  // 点击“返回”键后退
+  onBackButtonTap(){
+    wx.navigateBack({
+      delta: 1
+    })
+  },
   // 获得现页面ID在this.data.newsIdList这个list里面的index
   getNewsIdIndex(){
     let id = this.data.newsId
