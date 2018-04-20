@@ -1,4 +1,4 @@
-<view class='all-content'>
+<view class='all-content' bindtouchstart='contentTouchStart' bindtouchend='contentTouchEnd'>
   <view class='head'>
     <view class='title'>{{detailData.title}}</view>
     <view class='desc'>
