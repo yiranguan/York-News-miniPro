@@ -76,7 +76,6 @@ Page({
   },
 
   onNewsTap(event) {
-    console.log(event)
     let id = event.currentTarget.dataset.type
     let newsType = this.data.newsType[TYPEINDEX].type
     wx.navigateTo({

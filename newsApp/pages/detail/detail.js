@@ -1,66 +1,33 @@
-// pages/detail/detail.js
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-  
+    newsId:0,
+    newsType:'',
+  },
+  // 页面读取时，获得新闻ID和所属归类数据
+  onLoad(option){
+    this.setData({
+      newsId:option.id,
+      newsType:option.type
+    })
+    this.getDetail()
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-  
+  getDetail(callback) {
+    wx.request({
+      url: 'https://test-miniprogram.com/api/news/detail',
+      data: { 'id': this.data.newsId },
+      success: res => {
+        let result = res.data.result
+        console.log('The detail API data is: ', result)
+      },
+      fail: res => {
+        wx.showToast({
+          title: '尴尬了，页面加载失败',
+        })
+      },
+      complete: () => {
+        callback && callback()
+      }
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
-  }
 })
