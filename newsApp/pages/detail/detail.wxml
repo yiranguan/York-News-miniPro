@@ -1,2 +1,13 @@
 <!--pages/detail/detail.wxml-->
-<text>pages/detail/detail.wxml</text>
+<view style='display:flex flex-wrap'>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
+  <image src='/images/gn-pic.jpg'></image>
+</view>
+
