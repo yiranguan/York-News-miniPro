@@ -9,7 +9,7 @@
     </view>
     <image src='{{detailData.firstImage}}' class='firstImage'></image>
   </view>
-  <view class='content' wx:for='{{detailData.content}}' wx:key='{{detailData}}'>
+  <view wx:for='{{detailData.content}}' wx:key='{{detailData}}'>
     <view wx:if='{{item.type == "p"}}' class='paragraph-content'>{{item.text}}</view>
     <view wx:elseif='{{item.type == "strong"}}' class='paragraph-title'>{{item.text}}</view>
     <block wx:if='{{item.type=="image"}}' > 
