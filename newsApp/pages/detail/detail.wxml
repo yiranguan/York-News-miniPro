@@ -11,7 +11,7 @@
   </view>
   <view wx:for='{{detailData.content}}' wx:key='{{detailData}}'>
     <view wx:if='{{item.type == "p"}}' class='paragraph-content'>{{item.text}}</view>
-    <view wx:elseif='{{item.type == "strong"}}' class='paragraph-title'>{{item.text}}</view>
+    <view wx:if='{{item.type == "strong"}}' class='paragraph-title'>{{item.text}}</view>
     <block wx:if='{{item.type=="image"}}' > 
       <image src='{{item.src}}' class='content-image'></image>
     </block>   
