@@ -1,13 +1,20 @@
-<!--pages/detail/detail.wxml-->
-<view style='display:flex flex-wrap'>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <text style='color:white; white-space:pre-wrap'>pages/detail/detail.wxml</text>
-  <image src='/images/gn-pic.jpg'></image>
+<view class='all-content'>
+  <view class='head' style='color:white'>
+    <view class='title'>{{detailData.title}}</view>
+    <view class='desc'>
+      <view wx:if='{{detailData.source}}' class='auth'>{{detailData.source}}</view>
+      <view wx:else class='auth'>外星人</view>
+      <view class='time'>{{detailData.date}}</view>
+      <view class='read'>阅读数：{{detailData.readCount}}</view>
+    </view>
+    <image src='{{detailData.firstImage}}' class='firstImage'></image>
+  </view>
+  <view class='content' wx:for='{{detailData.content}}' wx:key='{{detailData}}' style='color:white'>
+    <view wx:if='{{item.type==p}}' class='p'>{{item.text}}</view>
+    <view wx:elseif='{{item.type==strong}}' class='strong'>{{item.text}}</view>
+    <block wx:if='{{item.type=="image"}}' > 
+      <image src='{{item.src}}' class='contentImage'></image>
+    </block>   
+  </view>
+  <button class='btn'>返回</button>
 </view>
-
