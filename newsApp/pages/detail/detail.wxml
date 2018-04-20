@@ -10,11 +10,11 @@
     <image src='{{detailData.firstImage}}' class='firstImage'></image>
   </view>
   <view class='content' wx:for='{{detailData.content}}' wx:key='{{detailData}}'>
-    <view wx:if='{{item.type==p}}' class='p'>{{item.text}}</view>
-    <view wx:elseif='{{item.type==strong}}' class='strong'>{{item.text}}</view>
+    <view wx:if='{{item.type == "p"}}' class='paragraph-content'>{{item.text}}</view>
+    <view wx:elseif='{{item.type == "strong"}}' class='paragraph-title'>{{item.text}}</view>
     <block wx:if='{{item.type=="image"}}' > 
-      <image src='{{item.src}}' class='contentImage'></image>
+      <image src='{{item.src}}' class='content-image'></image>
     </block>   
   </view>
-  <button class='btn'>返回</button>
+  <button class='btn' bindtap='onBackButtonTap'>返回</button>
 </view>
