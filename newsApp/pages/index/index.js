@@ -62,6 +62,9 @@ Page({
 
   onLoad() {
     this.getList(TYPEINDEX, LISTINDEX)
+    wx.showLoading({
+      title: '加载中',
+    })
   },
   // 下方方法：点击分类，实现分类文字、标题图片的变化，以及不同列表的渲染
   onNewsTypeTap(event){
@@ -69,6 +72,9 @@ Page({
     TYPEINDEX = event.currentTarget.dataset.type
     this.setNewsTypeStyle()
     this.getList(TYPEINDEX, LISTINDEX)
+    wx.showLoading({
+      title: '加载中',
+    })
   },
 
   onShow(){
@@ -98,6 +104,9 @@ Page({
         TYPEINDEX += 1
         this.setNewsTypeStyle()
         this.getList(TYPEINDEX, LISTINDEX)
+        wx.showLoading({
+          title: '加载中',
+        })
       }
       
     }
@@ -108,6 +117,9 @@ Page({
         TYPEINDEX -= 1
         this.setNewsTypeStyle()
         this.getList(TYPEINDEX, LISTINDEX)
+        wx.showLoading({
+          title: '加载中',
+        })
       }
     }
     clearInterval(INTERVAL); // 清除setInterval
@@ -118,11 +130,17 @@ Page({
     this.getList(TYPEINDEX, LISTINDEX,() => {
       wx.stopPullDownRefresh()
     })
+    wx.showLoading({
+      title: '加载中',
+    })
   },
   // 触底加载
   onReachBottom(){
     LISTINDEX += 7
     this.getList(TYPEINDEX, LISTINDEX)
+    wx.showLoading({
+      title: '加载中',
+    })
   },
   // 下方getList()方法用来获取数据并设置data
   getList(typeIndex, listIndex, callback){
@@ -140,6 +158,7 @@ Page({
       },
       complete:() => {
         callback && callback()
+        wx.hideLoading();
       }
     })
   },
