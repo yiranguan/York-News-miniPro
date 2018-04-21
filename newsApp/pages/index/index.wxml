@@ -17,7 +17,8 @@
             <view class='news-date'>{{item.date}}</view>
           </view>
         </view>
-        <image src='{{item.firstImage}}' class='news-first-image'></image>
+        <image wx:if='{{item.firstImage}}' src='{{item.firstImage}}' class='news-first-image'></image>
+        <image wx:else src='/images/default-icon.jpg' class='news-first-image'></image>
       </view>
     </view>
   </view> 
