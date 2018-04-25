@@ -58,6 +58,7 @@ Page({
     ],
     newTypePicURL: '/images/gn-pic.jpg',
     newsList: [],
+    animationData: {}
   },
 
   onLoad() {
@@ -70,6 +71,7 @@ Page({
   onNewsTypeTap(event){
     LISTINDEX = 7
     TYPEINDEX = event.currentTarget.dataset.type
+    this.setNewsTypeChangeAnimation()
     this.setNewsTypeStyle()
     this.getList(TYPEINDEX, LISTINDEX)
     wx.showLoading({
@@ -196,6 +198,21 @@ Page({
     this.setData({
       newsType: newsType,
       newTypePicURL: '/images/' + newsType[TYPEINDEX].type + '-pic.jpg'
+    })
+  },
+
+  setNewsTypeChangeAnimation(){
+    let animation = wx.createAnimation({
+      transformOrigin: '50% 50%',
+      duration: 200,
+      timingFunction: 'ease',
+      delay:0
+    })
+    this.animation = animation
+    this.animation.scale(1.3, 1.3).step()
+    this.animation.scale(1, 1).step()
+    this.setData({
+      animationData: this.animation.export()
     })
   },
 

@@ -1,4 +1,4 @@
-<view class='content'>
+<view class='content' animation='{{animationData}}'>
   <view class='nav'>
     <view wx:for='{{newsType}}' wx:key='text' class='news-type-text {{item.select}}' data-type='{{item.code}}' bindtap='onNewsTypeTap'>
       <view>{{item.text}}</view>
