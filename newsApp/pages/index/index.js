@@ -56,6 +56,10 @@ Page({
         code: 6
       }
     ],
+    tryTemplate:{
+      newTypePicURL: '/images/gn-pic.jpg',
+      newsList: [],
+    },
     newTypePicURL: '/images/gn-pic.jpg',
     newsList: [],
     animationData: {}
