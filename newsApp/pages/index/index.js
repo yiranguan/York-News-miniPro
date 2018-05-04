@@ -56,6 +56,18 @@ Page({
         code: 6
       }
     ],
+    mainPage:{
+      newTypePicURL: '/images/gn-pic.jpg',
+      newsList: [],
+    },
+    leftPage:{
+      newTypePicURL: '/images/gn-pic.jpg',
+      newsList: [],
+    },
+    rightPage:{
+      newTypePicURL: '/images/gn-pic.jpg',
+      newsList: [],
+    },
     newTypePicURL: '/images/gn-pic.jpg',
     newsList: [],
     animationData: {}
@@ -95,6 +107,10 @@ Page({
     TOUCHDOT = event.touches[0].pageX // 获取触摸时的原点
     // 使用js计时器记录时间    
     INTERVAL = setInterval(() => {}, 100)
+  },
+
+  contentTouchMove(event){
+    console.log(event)
   },
 
   contentTouchEnd(event){

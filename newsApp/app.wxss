@@ -1,5 +1,0 @@
-page { 
-  display: block;  
-  min-height: 100%;  
-  background-color: #000;  
-}
