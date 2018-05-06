@@ -155,7 +155,9 @@ Page({
       data: { 'type': this.data.newsType[typeIndex].type },
       success:res => {
         let result = res.data.result
-        this.setNewsListData(result, listIndex)
+        let pageData = this.getNewsListData(result, listIndex, typeIndex)
+        console.log(pageData)
+        this.setNewsListData(pageData)
       },
       fail:res => {
         wx.showToast({
@@ -168,9 +170,11 @@ Page({
       }
     })
   },
-  // 下方setNewsListData(result, listIndex)方法，用来设置data，渲染页面
-  setNewsListData(result, listIndex){
+  // 下方setNewsListData(result, listIndex, typeIndex)方法，获取每个可能被渲染的页面的数据
+  getNewsListData(result, listIndex, typeIndex){
     let newsList = []
+    let newTypePicURL = '/images/' + this.data.newsType[typeIndex].type + '-pic.jpg'
+    let pageContentData = {}
     let listLength = 0
     if(listIndex > result.length){
       listLength = result.length
@@ -184,8 +188,14 @@ Page({
         content
       )
     }
+    pageContentData.newsList = newsList
+    pageContentData.newTypePicURL = newTypePicURL
+    return pageContentData
+  },
+  // 设置不同template的数据
+  setNewsListData(pageData){
     this.setData({
-      newsList: newsList
+      tryTemplate:pageData
     })
   },
   // 下方方法实现分类文字效果、标题图片的变化
@@ -200,8 +210,7 @@ Page({
     newsType[TYPEINDEX].select = 'selected'
     newsType[TYPEINDEX].selectLine = 'selected-line'
     this.setData({
-      newsType: newsType,
-      newTypePicURL: '/images/' + newsType[TYPEINDEX].type + '-pic.jpg'
+      newsType: newsType
     })
   },
 
